@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+     
+     <!--
+     http://doanduyhai.wordpress.com/2012/01/01/advanced-aspectj-part-v-integration-with-spring/ 
+        
+     <context:load-time-weaver
+     	 weaver-class="org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver"
+     	aspectj-weaving="on"/>      
+ -->   
+	<!-- Adding the Intercepter - ThrowsAdvice to handle exceptions on system -->
+	<bean id="exceptionHandlerAdvice" class="com.yourpackagename.framework.aop.ExceptionHandlerAdvice" >
+	</bean>
+
+	<!-- Applying the advice to the objects in the system 
+		http://forum.springsource.org/showthread.php?62668-Mixing-JDK-and-CGLIB-proxies
+		http://insufficientinformation.blogspot.com/2007/12/spring-dynamic-proxies-vs-cglib-proxies.html
+		http://www.packtpub.com/article/autoproxy-spring-aspect-oriented-programming-aop
+	-->  
+	<bean id="systemExceptionHandlerBeanFactoryProxyCreator"
+          class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator" >
+          
+          
+    	<property name="proxyTargetClass" value="false"/>
+    
+		<property name="beanNames">
+			<list>
+				<value>*Dao</value>
+				<value>*DAO</value>
+				<value>*Service</value>
+				<!-- 
+				<value>*Manager</value>
+				 -->
+				<value>*Controller</value>
+				<value>*Impl</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>exceptionHandlerAdvice</value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
