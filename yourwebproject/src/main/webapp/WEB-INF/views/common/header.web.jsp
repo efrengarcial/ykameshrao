@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+	
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -80,7 +82,51 @@
                 } else {
                     $(element).parent("div").parent("div").removeClass(errorClass).addClass(validClass);
                 }
+            }, 
+            submitHandler: function(form) {
+                var $form = $(form);
+                var data =$form.serializeObject();
+             	
+             	$.ajax({
+             		url: "${pageContext.request.contextPath}/j_spring_security_check",
+             	    dataType: 'json',
+			        data: data ,
+             	    type: "POST",
+             	    success: function(json) {
+             	      alert(json);
+             	      window.location.replace('${contextPath}/choose');    
+             	      /*if (json.success) {
+             	        $("#signinForm").hide();
+             	        $("#container").show();
+             	        initApp();
+             	        return true;
+             	      }else {
+             	        displayAlert("warn", "Bad login or password!", TIME_LONG);
+             	        return false;
+             	      } */
+             	    },
+             	    error: function(XMLHttpRequest, textStatus, errorThrown){
+             	      alert(errorThrown);
+             	    }
+             	  });
+             	
             }
         });
     });
+    
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
 </script>

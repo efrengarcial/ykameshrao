@@ -12,8 +12,6 @@
         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
  	<context:component-scan base-package="com.yourpackagename.commons.security"/>
- 	<context:component-scan base-package="com.yourpackagename.yourwebproject.filter"/>
-
     
     <!--  --> 
    <http  auto-config="false"  use-expressions="true"  entry-point-ref="restAuthenticationEntryPoint">
@@ -25,8 +23,10 @@
   		<intercept-url pattern="/resources/**" access="permitAll" />
   		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
   		<intercept-url pattern="/**" access="permitAll" />
+  		<intercept-url pattern="/secure/*" access="isAuthenticated()"/>
       -->
-      <intercept-url pattern="/secure/*" access="isAuthenticated()"/>
+      
+      <intercept-url pattern="/choose" access="isAuthenticated()"/>
       <intercept-url pattern="/registerUser" access="isAuthenticated()"/>
       
       <custom-filter ref="myFilter" position="FORM_LOGIN_FILTER"/>
@@ -34,6 +34,8 @@
    </http>
     
   <!-- 
+  http://forum.springsource.org/showthread.php?88927-Spring-login-without-being-redirected
+  
    <beans:bean id="myFilter" class="com.yourpackagename.yourwebproject.filter.CustomUsernamePasswordAuthenticationFilter">
       <beans:property name="authenticationManager" ref="authenticationManager"/>
       <beans:property name="authenticationSuccessHandler" ref="mySuccessHandler"/>
@@ -42,11 +44,14 @@
    -->
   
     <beans:bean id="myFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
-      <beans:property name="authenticationManager" ref="authenticationManager"/>
-      <beans:property name="authenticationSuccessHandler" ref="mySuccessHandler"/>
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+       <beans:property name="filterProcessesUrl" value="/j_spring_security_check"/>
+       <beans:property name="authenticationSuccessHandler" ref="mySuccessHandler" />
+       <beans:property name="authenticationFailureHandler" ref="myFailureHandler" />
    </beans:bean>
     
-   <beans:bean id="mySuccessHandler" class="com.yourpackagename.commons.security.MySavedRequestAwareAuthenticationSuccessHandler"/>
+   <beans:bean id="mySuccessHandler" class="com.yourpackagename.commons.security.MyAuthenticationSuccessHandler"/>
+    <beans:bean id="myFailureHandler" class="com.yourpackagename.commons.security.MyAuthenticationFailureHandler"/>
     
    <authentication-manager alias="authenticationManager">
       <authentication-provider user-service-ref="userDetailsService">

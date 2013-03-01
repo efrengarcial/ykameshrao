@@ -44,11 +44,11 @@
 		   <bean class="com.yourpackagename.framework.web.webflow.WebflowArgumentResolver" p:flowExecutor-ref="flowExecutor" />
 		    <bean class="com.yourpackagename.framework.web.datatable.TableParamArgumentResolver" />		   
 		 </mvc:argument-resolvers>
-		  <!--
+		 <!--  -->
 		 <mvc:message-converters>
 		 	<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+   			<bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />		 
 		 </mvc:message-converters> 
-		   --> 
 	</mvc:annotation-driven>
     
     <!-- 
