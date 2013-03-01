@@ -21,7 +21,7 @@
    		<put-attribute name="content" value="/WEB-INF/views/web/userRegistration.web.jsp" />
    	</definition>
 
-    <definition name="secure/dashboard" extends="base">
+    <definition name="dashboard" extends="base">
    		<put-attribute name="title" value="Dashboard" />
    		<put-attribute name="content" value="/WEB-INF/views/web/dashboard.web.jsp" />
    	</definition>

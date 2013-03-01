@@ -48,7 +48,8 @@ public class DashboardController extends BaseWebAppController {
 
             return View.dashboard;
         } else {
-            return Key.redirect + Route.home;
+            //return Key.redirect + Route.home;
+        	return View.dashboard;
         }
     }
 }

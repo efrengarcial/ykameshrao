@@ -92,9 +92,8 @@
              	    dataType: 'json',
 			        data: data ,
              	    type: "POST",
-             	    success: function(json) {
-             	      alert(json);
-             	      window.location.replace('${contextPath}/choose');    
+             	    success: function(json) {             	      
+             	      window.location.replace('${contextPath}/secure/dashboard');    
              	      /*if (json.success) {
              	        $("#signinForm").hide();
              	        $("#container").show();
