@@ -9,7 +9,7 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="option1">
-            <p>I'm in Option 1.</p>
+            <p>I'm in Option 1.</p>         
         </div>
         <div class="tab-pane" id="option2">
             <p>Howdy, I'm in Option 2.</p>
