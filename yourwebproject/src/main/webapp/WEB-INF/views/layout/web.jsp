@@ -5,31 +5,31 @@
 <html>
 <head>
     <title><tiles:insertAttribute name="title" ignore="true"/></title>
-    
-    <link href="res/datatables/media/css/demo_table.css" rel="stylesheet" type="text/css" />
-    <link href="res/datatables/media/css/demo_table_jui.css" rel="stylesheet" type="text/css" />    
+        
+    <link href="${pageContext.request.contextPath}/res/datatables/media/css/demo_table.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/res/datatables/media/css/demo_table_jui.css" rel="stylesheet" type="text/css" />    
     <!--
-    <link href="res/datatables/media/css/demo_page.css" rel="stylesheet" type="text/css" />        
+    <link href="${pageContext.request.contextPath}/res/datatables/media/css/demo_page.css" rel="stylesheet" type="text/css" />        
     -->
     
-    <link rel="stylesheet" href="res/bootstrap/css/united.bootstrap.min.css"/>
-    <link rel="stylesheet" href="res/css/app.css"/>
-    <link rel="stylesheet" href="res/css/sticky.css"/>
-    <link rel="stylesheet" href="res/datatables/media/css/DT_bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/bootstrap/css/united.bootstrap.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/app.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/sticky.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/datatables/media/css/DT_bootstrap.css" type="text/css" />
     
      
-    <link rel="stylesheet" href="res/css/blitzer/jquery-ui-1.9.0.custom.min.css" media="all"  />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/blitzer/jquery-ui-1.9.0.custom.min.css" media="all"  />
     
      
-    <script type="text/javascript" src="res/js/jquery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="res/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="res/js/jquery/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="res/js/jquery/additional-methods.min.js"></script>
-    <script type="text/javascript" src="res/js/jquery/jquery.validate.bootstrapfix.js"></script>
-    <script type="text/javascript" src="res/js/jquery/jquery-ui-1.9.0.custom.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery/additional-methods.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery/jquery.validate.bootstrapfix.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery/jquery-ui-1.9.0.custom.min.js"></script>
     
-    <script type="text/javascript" src="res/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="res/datatables/media/js/DT_bootstrap.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/datatables/media/js/DT_bootstrap.js"></script>
     
      
 </head>

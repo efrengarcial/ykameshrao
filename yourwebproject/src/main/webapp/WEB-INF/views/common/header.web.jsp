@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 	
@@ -12,16 +13,15 @@
             </ul>
             <ul class="nav pull-right">
                 <li class="dropdown">
-                    <c:choose>
-                        <c:when test="${loggedIn}">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,
-                                    ${user.userName}<b class="caret"></b></a>
+                		<sec:authorize access="isFullyAuthenticated()">
+                			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,
+                                    <sec:authentication property="principal.username" /> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="logoutUser">Logout</a></li>
-                            </ul>
-                        </c:when>
-                        <c:otherwise>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Sign
+                                <li><a href="${contextPath}/j_spring_security_logout">Logout</a></li>
+                            </ul>                        
+						</sec:authorize>
+						<sec:authorize access="!isAuthenticated()">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Sign
                                 In<b class="caret"></b></a>
 
                             <div class="dropdown-menu signin-pad">
@@ -37,8 +37,7 @@
                                     <a href="forgotPassword" style="margin-left: -14px;">Forgot your password?</a>
                                 </form>
                             </div>
-                        </c:otherwise>
-                    </c:choose>
+						</sec:authorize>              
                 </li>
             </ul>
         </div>

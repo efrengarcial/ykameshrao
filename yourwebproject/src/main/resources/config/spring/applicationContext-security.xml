@@ -24,6 +24,7 @@
   		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
   		<intercept-url pattern="/**" access="permitAll" />
   		<intercept-url pattern="/secure/*" access="isAuthenticated()"/>
+  	    <sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
       -->
       
       <intercept-url pattern="/choose" access="isAuthenticated()"/>
@@ -31,7 +32,7 @@
       <intercept-url pattern="/secure/*" access="isAuthenticated()"/>
       
       <custom-filter ref="myFilter" position="FORM_LOGIN_FILTER"/>
-      <logout />
+      <logout logout-success-url="/" />
    </http>
     
   <!-- 
