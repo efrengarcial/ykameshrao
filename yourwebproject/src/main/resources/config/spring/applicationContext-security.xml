@@ -13,7 +13,13 @@
 
  	<context:component-scan base-package="com.yourpackagename.commons.security"/>
     
-    <!--  --> 
+     <!-- Stateless RESTful service using Basic authentication  -->
+	  <http pattern="/api/**" create-session="stateless"  use-expressions="true" >
+	    <intercept-url pattern='/**' access='isAuthenticated()' />
+	    <http-basic />
+	  </http>
+    
+    
    <http  auto-config="false"  use-expressions="true"  entry-point-ref="restAuthenticationEntryPoint">
    	  <intercept-url pattern="/home" access="permitAll"/>
    	  <intercept-url pattern="/userRegistration" access="permitAll"/>
@@ -24,12 +30,14 @@
   		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
   		<intercept-url pattern="/**" access="permitAll" />
   		<intercept-url pattern="/secure/*" access="isAuthenticated()"/>
-  	    <sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  	    <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  	    <intercept-url pattern="/secure/*" access="isAuthenticated()"/>
+  	     <intercept-url pattern="/api/**" access="isAuthenticated()"/>
       -->
       
       <intercept-url pattern="/choose" access="isAuthenticated()"/>
       <intercept-url pattern="/registerUser" access="isAuthenticated()"/>
-      <intercept-url pattern="/secure/*" access="isAuthenticated()"/>
+      
       
       <custom-filter ref="myFilter" position="FORM_LOGIN_FILTER"/>
       <logout logout-success-url="/" />
@@ -37,6 +45,8 @@
     
   <!-- 
   http://forum.springsource.org/showthread.php?88927-Spring-login-without-being-redirected
+  org.springframework.security.ui.webapp.AuthenticationProcessingFilter
+  http://static.springsource.org/spring-security/site/docs/3.1.x/reference/springsecurity.html
   
    <beans:bean id="myFilter" class="com.yourpackagename.yourwebproject.filter.CustomUsernamePasswordAuthenticationFilter">
       <beans:property name="authenticationManager" ref="authenticationManager"/>
