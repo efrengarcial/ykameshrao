@@ -28,7 +28,7 @@
             <url>https://oss.sonatype.org/content/repositories/releases</url>
         </repository>
 
-        <!-- Spring Releases -->
+        <!-- Spring Releases   -->
         <repository>
             <id>spring-release</id>
             <name>Spring Maven Release Repository</name>
