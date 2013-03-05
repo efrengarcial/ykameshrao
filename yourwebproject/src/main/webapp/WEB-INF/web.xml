@@ -68,7 +68,7 @@
 	
 
     <!-- Servlet Configurations -->
-    <!-- API Dispatcher  -->
+    <!-- API Dispatcher  
     <servlet>
         <servlet-name>yourWebProjectApiDispatcherServlet</servlet-name>
         <servlet-class>com.yourpackagename.yourwebproject.api.dispatcher.YourWebProjectApiDispatcherServlet</servlet-class>
@@ -83,7 +83,7 @@
         <servlet-name>yourWebProjectApiDispatcherServlet</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    
+    -->
 
     <!-- Web App Dispatcher -->
     <servlet>
@@ -109,77 +109,77 @@
 
 
     <!-- Error Handling -->
-    <!-- Mapping a lot of errors to Bad Request -->
+    <!-- Mapping a lot of errors to Bad Request  -->
     <error-page>
         <error-code>400</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>402</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>406</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>407</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>409</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>410</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>411</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
     <error-page>
         <error-code>412</error-code>
-        <location>/api/errors/400</location>
+        <location>/400</location>
     </error-page>
 
 
-    <!-- Other properly handled errors -->
+    <!-- Other properly handled errors  -->
     <error-page>
         <error-code>401</error-code>
-        <location>/api/errors/401</location>
+        <location>/401</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/api/errors/404</location>
+        <location>/404</location>
     </error-page>
     <error-page>
         <error-code>405</error-code>
-        <location>/api/errors/405</location>
+        <location>/405</location>
     </error-page>
     <error-page>
         <error-code>408</error-code>
-        <location>/api/errors/408</location>
+        <location>/408</location>
     </error-page>
     <error-page>
         <error-code>415</error-code>
-        <location>/api/errors/415</location>
+        <location>/415</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/api/errors/500</location>
+        <location>/500</location>
     </error-page>
     <error-page>
         <error-code>501</error-code>
-        <location>/api/errors/501</location>
+        <location>/501</location>
     </error-page>
     <error-page>
         <error-code>503</error-code>
-        <location>/api/errors/503</location>
+        <location>/503</location>
     </error-page>
-
+    
 </web-app>
