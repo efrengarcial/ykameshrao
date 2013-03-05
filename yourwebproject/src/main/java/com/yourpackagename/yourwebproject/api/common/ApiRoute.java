@@ -12,7 +12,7 @@ public class ApiRoute {
     public static final String uRegister = "/register";
     public static final String uLogin = "/login";
 
-    public static final String errorController = "/errors";
+    public static final String errorController = "/api/errors";
 
     public static final String authFailedUrl = "/authFailed";
     public static final String merchantNotFoundUrl = "/merchantNotFound";
