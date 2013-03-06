@@ -22,7 +22,7 @@ import com.yourpackagename.yourwebproject.api.common.HttpError;
  * @company: &copy; 2012, Kaleidosoft Labs
  */
 @Controller
-//@RequestMapping(ApiRoute.errorController)
+@RequestMapping(ApiRoute.errorController)
 public class HttpErrorController extends BaseApiController {
     private @Autowired HttpError httpError;
 
@@ -36,7 +36,7 @@ public class HttpErrorController extends BaseApiController {
     }
 
 
-    @RequestMapping(value = "/401", method = RequestMethod.GET)
+    @RequestMapping(value = "/401")
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public @ResponseBody Response unauthorised() {
         Response response = this.serverResponse();

@@ -13,5 +13,5 @@ public class Route {
     public static final String loginUser = "/loginUser";
     public static final String registerUser = "/registerUser";
     public static final String logoutUser = "/logoutUser";
-    public static final String dashboard = "/api/dashboard";
+    public static final String dashboard = "/secure/dashboard";
 }

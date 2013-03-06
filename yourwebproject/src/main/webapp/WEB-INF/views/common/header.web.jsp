@@ -92,7 +92,7 @@
 			        data: data ,
              	    type: "POST",
              	    success: function(json) {             	      
-             	      window.location.replace('${contextPath}/api/dashboard');    
+             	      window.location.replace('${contextPath}/secure/dashboard');    
              	      /*if (json.success) {
              	        $("#signinForm").hide();
              	        $("#container").show();

@@ -81,7 +81,7 @@
 
     <servlet-mapping>
         <servlet-name>yourWebProjectApiDispatcherServlet</servlet-name>
-        <url-pattern>/api/*</url-pattern>
+        <url-pattern>/common/*</url-pattern>
     </servlet-mapping>
     -->
 
@@ -108,78 +108,79 @@
     </listener>
 
 
-    <!-- Error Handling -->
-    <!-- Mapping a lot of errors to Bad Request  -->
+      <!-- Error Handling -->
+    <!-- Mapping a lot of errors to Bad Request -->
     <error-page>
         <error-code>400</error-code>
-        <location>/400</location>
+        <location>/common/errors/400</location>
     </error-page>
     <error-page>
         <error-code>402</error-code>
-        <location>/400</location>
+        <location>/common/errors/402</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
-        <location>/400</location>
+        <location>/common/errors/403</location>
     </error-page>
     <error-page>
         <error-code>406</error-code>
-        <location>/400</location>
+        <location>/common/errors/406</location>
     </error-page>
     <error-page>
         <error-code>407</error-code>
-        <location>/400</location>
+        <location>/common/errors/407</location>
     </error-page>
     <error-page>
         <error-code>409</error-code>
-        <location>/400</location>
+        <location>/common/errors/409</location>
     </error-page>
     <error-page>
         <error-code>410</error-code>
-        <location>/400</location>
+        <location>/common/errors/410</location>
     </error-page>
     <error-page>
         <error-code>411</error-code>
-        <location>/400</location>
+        <location>/common/errors/400</location>
     </error-page>
     <error-page>
         <error-code>412</error-code>
-        <location>/400</location>
+        <location>/common/errors/400</location>
     </error-page>
 
 
-    <!-- Other properly handled errors  -->
+    <!-- Other properly handled errors -->
     <error-page>
         <error-code>401</error-code>
-        <location>/401</location>
+        <location>/common/errors/401</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/404</location>
+        <location>/common/errors/404</location>
     </error-page>
     <error-page>
         <error-code>405</error-code>
-        <location>/405</location>
+        <location>/common/errors/405</location>
     </error-page>
     <error-page>
         <error-code>408</error-code>
-        <location>/408</location>
+        <location>/common/errors/408</location>
     </error-page>
     <error-page>
         <error-code>415</error-code>
-        <location>/415</location>
+        <location>/common/errors/415</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/500</location>
+        <location>/common/errors/500</location>
     </error-page>
     <error-page>
         <error-code>501</error-code>
-        <location>/501</location>
+        <location>/common/errors/501</location>
     </error-page>
     <error-page>
         <error-code>503</error-code>
-        <location>/503</location>
+        <location>/common/errors/503</location>
     </error-page>
+
     
 </web-app>

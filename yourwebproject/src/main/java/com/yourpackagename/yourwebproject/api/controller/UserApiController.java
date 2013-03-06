@@ -26,9 +26,9 @@ import com.yourpackagename.yourwebproject.service.UserService;
  */
 @Controller
 @RequestMapping(ApiRoute.userController)
-public class UserController extends BaseApiController {
+public class UserApiController extends BaseApiController {
     private @Autowired UserService userService;
-    private Logger log = LoggerFactory.getLogger(UserController.class);
+    private Logger log = LoggerFactory.getLogger(UserApiController.class);
 
 
     @RequestMapping(value = ApiRoute.uRegister, method = RequestMethod.POST)

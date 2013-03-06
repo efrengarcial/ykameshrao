@@ -8,11 +8,11 @@ package com.yourpackagename.yourwebproject.api.common;
  * @company: &copy; 2012, Kaleidosoft Labs
  */
 public class ApiRoute {
-    public static final String userController = "/user";
+    public static final String userController = "/api/user";
     public static final String uRegister = "/register";
     public static final String uLogin = "/login";
 
-    public static final String errorController = "/api/errors";
+    public static final String errorController = "/common/errors";
 
     public static final String authFailedUrl = "/authFailed";
     public static final String merchantNotFoundUrl = "/merchantNotFound";

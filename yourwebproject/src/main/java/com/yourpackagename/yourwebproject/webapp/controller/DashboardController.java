@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.Locale;
 
 /**
@@ -30,7 +31,7 @@ public class DashboardController extends BaseWebAppController {
 
 
     @RequestMapping(value = Route.dashboard, method = RequestMethod.GET)
-    public String merchantDashboard(Locale locale, Model model,
+    public String merchantDashboard(Locale locale, Model model,Principal principal,
                                     @RequestParam(value = Key.isLogin, required = false) boolean ls,
                                     @RequestParam(value = Key.isRegister, required = false) boolean rs,
                                     @RequestParam(value = Key.isEmailConfirmed, required = false) boolean ecs) {
