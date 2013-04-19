@@ -1,22 +1,29 @@
 package com.yourpackagename.yourwebproject.model.entity;
 
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
+
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import com.yourpackagename.framework.data.JpaEntity;
 import com.yourpackagename.yourwebproject.common.Key;
 import com.yourpackagename.yourwebproject.model.entity.embedded.Address;
 import com.yourpackagename.yourwebproject.model.entity.enums.Role;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-
-import javax.persistence.*;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * User entity
@@ -172,7 +179,9 @@ public class User extends JpaEntity<Long> implements Serializable {
      * @return SHA hash digest of the password
      */
     public static synchronized String hashPassword(String pass) {
-        return org.apache.commons.codec.digest.DigestUtils.shaHex(pass);
+    	StandardPasswordEncoder encoder = new StandardPasswordEncoder();
+    	return encoder.encode(pass);
+        //return org.apache.commons.codec.digest.DigestUtils.shaHex(pass);
     }
 
 
