@@ -5,7 +5,7 @@
 
 <div class="row">
 
-	<spring:url value="/api/registerUser" var="formJsonUrl" />
+	<spring:url value="/registerUser" var="formJsonUrl" />
 	
 	<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 	
