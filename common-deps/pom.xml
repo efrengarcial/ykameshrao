@@ -395,7 +395,6 @@
 		   <version>${spring.data.jpa.version}</version>
 		</dependency>
 
-
         <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>

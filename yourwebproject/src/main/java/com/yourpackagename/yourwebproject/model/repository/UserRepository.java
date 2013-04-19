@@ -1,7 +1,7 @@
 package com.yourpackagename.yourwebproject.model.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.yourpackagename.yourwebproject.model.entity.User;
@@ -15,7 +15,7 @@ import com.yourpackagename.yourwebproject.model.entity.User;
  * http://blog.42.nl/articles/spring-data-with-querydsl-repositories-made-easy
  */
 @Repository 
-public interface UserRepository extends UserRepositoryCustom, CrudRepository<User, Long> {
+public interface UserRepository extends UserRepositoryCustom, JpaRepository<User, Long> {
     /**
      * Finds a user with the given email
      *

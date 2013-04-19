@@ -1,5 +1,7 @@
 package com.yourpackagename.yourwebproject.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.yourpackagename.framework.exception.database.NotFoundException;
@@ -86,4 +88,11 @@ public interface UserService  {
      * @return
      */
     public Validity validate(User user) ;
+
+
+    /**
+     * Consulta los usuarios inactivos.
+     * @return
+     */
+    public List<User> findInactiveUsers();
 }

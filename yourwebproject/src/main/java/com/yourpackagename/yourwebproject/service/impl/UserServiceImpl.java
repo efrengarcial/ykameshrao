@@ -1,6 +1,7 @@
 package com.yourpackagename.yourwebproject.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -114,4 +115,9 @@ public class UserServiceImpl  implements UserService {
             throw new NotFoundException(key.unfMsg, key.unfCode);
         }
     }
+    
+    @Override
+	public List<User> findInactiveUsers() {
+		return userRepository.findInactiveUsers();
+	}
 }
