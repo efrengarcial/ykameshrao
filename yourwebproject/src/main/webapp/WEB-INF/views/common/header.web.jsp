@@ -90,6 +90,7 @@
              		url: "${pageContext.request.contextPath}/j_spring_security_check",
              	    dataType: 'json',
 			        data: data ,
+			        //data:   $form.serialize(),
              	    type: "POST",
              	    success: function(json) {             	      
              	      window.location.replace('${contextPath}/secure/dashboard');    

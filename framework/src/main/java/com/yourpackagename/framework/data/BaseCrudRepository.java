@@ -18,7 +18,7 @@ public interface BaseCrudRepository<T extends Entity, ID extends Serializable> e
      * Method to be implemented for providing the
      * repository with needed external resources
      */
-    public void setupRepository();
+    //public void setupRepository();
 
     /**
      * Method to update the given key value pairs
@@ -28,7 +28,7 @@ public interface BaseCrudRepository<T extends Entity, ID extends Serializable> e
      * @param keyValues
      * @return
      */
-    public T update(ID id, Map<String, Object> keyValues);
+    //public T update(ID id, Map<String, Object> keyValues);
 
 
     /**
@@ -39,5 +39,5 @@ public interface BaseCrudRepository<T extends Entity, ID extends Serializable> e
      * @param keyValues
      * @return
      */
-    public T update(T object, Map<String, Object> keyValues);
+    //public T update(T object, Map<String, Object> keyValues);
 }

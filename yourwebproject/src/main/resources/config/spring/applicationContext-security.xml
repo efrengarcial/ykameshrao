@@ -10,6 +10,8 @@
 	    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 	    http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+        
+    <beans:import resource="applicationContext-service.xml"/>
 
  	<context:component-scan base-package="com.yourpackagename.commons.security"/>
     
@@ -24,6 +26,7 @@
    	  <intercept-url pattern="/home" access="permitAll"/>
    	  <intercept-url pattern="/userRegistration" access="permitAll"/>
    	  <intercept-url pattern="/loginUser" access="permitAll"/>	
+   	  <intercept-url pattern="/registerUser" access="permitAll"/>
    	  <!-- 
        	<intercept-url pattern="/backend/**" access="isAuthenticated()" />
   		<intercept-url pattern="/resources/**" access="permitAll" />
@@ -35,13 +38,12 @@
   	     <intercept-url pattern="/api/**" access="isAuthenticated()"/>
       -->
       
-      <intercept-url pattern="/choose" access="isAuthenticated()"/>
-      <intercept-url pattern="/registerUser" access="isAuthenticated()"/>
+      <intercept-url pattern="/choose" access="isAuthenticated()"/>      
       <intercept-url pattern="/secure/*" access="isAuthenticated()"/>
       
       
       <custom-filter ref="myFilter" position="FORM_LOGIN_FILTER"/>
-      <logout logout-success-url="/" />
+      <logout logout-success-url="/"  delete-cookies='JSESSIONID' />
    </http>
     
   <!-- 
@@ -67,14 +69,20 @@
     <beans:bean id="myFailureHandler" class="com.yourpackagename.commons.security.MyAuthenticationFailureHandler"/>
     
    <authentication-manager alias="authenticationManager">
-      <authentication-provider user-service-ref="userDetailsService">
-           <password-encoder ref="passwordEncoder"/>
+      <authentication-provider user-service-ref="userService">
+           <password-encoder ref="encoder"/>
          </authentication-provider>
    </authentication-manager>
    
+   <!--
+   	http://rtimothy.tumblr.com/post/26527448708/spring-3-1-security-and-salting-passwords 
+    -->
+   <beans:bean id="encoder" 
+    				class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	</beans:bean>
 	 
     <!-- Use a Md5 encoder since the user's passwords are stored as Md5 in the database -->
- <beans:bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" id="passwordEncoder"/>
+    <beans:bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" id="passwordEncoder"/>
 
    <!-- An in-memory list of users. No need to access an external database layer.
       See Spring Security 3.1 Reference 5.2.1 In-Memory Authentication -->
