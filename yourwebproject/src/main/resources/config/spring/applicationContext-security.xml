@@ -43,7 +43,7 @@
       
       
       <custom-filter ref="myFilter" position="FORM_LOGIN_FILTER"/>
-      <logout logout-success-url="/" />
+      <logout logout-success-url="/"  delete-cookies='JSESSIONID' />
    </http>
     
   <!-- 

@@ -84,7 +84,8 @@ public abstract class BaseMongoCrudRepository<T extends MongoEntity, ID extends 
     }
 
 
-    @Override public T update(ID id, Map<String, Object> keyValues) {
+    /*@Override */ 
+    public T update(ID id, Map<String, Object> keyValues) {
         T entity = null;
         for (Map.Entry<String, Object> entry : keyValues.entrySet()) {
             entity = mongoOperations.findAndModify(new Query(Criteria.where("id").is(id)),
@@ -94,7 +95,8 @@ public abstract class BaseMongoCrudRepository<T extends MongoEntity, ID extends 
     }
 
 
-    @Override public T update(T object, Map<String, Object> keyValues) {
+    /*@Override */ 
+    public T update(T object, Map<String, Object> keyValues) {
         T entity = object;
         for (Map.Entry<String, Object> entry : keyValues.entrySet()) {
             entity = mongoOperations.findAndModify(new Query(Criteria.where("id").is(object.getId())),
