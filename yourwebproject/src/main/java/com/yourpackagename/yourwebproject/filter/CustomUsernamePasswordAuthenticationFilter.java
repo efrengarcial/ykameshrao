@@ -22,6 +22,7 @@ public class CustomUsernamePasswordAuthenticationFilter  extends 	UsernamePasswo
 			HttpServletResponse response, Authentication authResult)
 					throws IOException, ServletException {
 		super.successfulAuthentication(request, response, authResult);
+		//super.successfulAuthentication(request, response, chain, authResult);
 		System.out.println("==successful login==");
 	}
 

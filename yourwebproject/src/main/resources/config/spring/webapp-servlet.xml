@@ -22,7 +22,7 @@
      <!-- Configures Handler Interceptors
 	 http://www.captaindebug.com/2011/09/using-spring-interceptors-in-your-mvc.html
 	  --> 
-	<mvc:interceptors>  
+	<mvc:interceptors>   
 	 <!-- This bit of XML will intercept all URLs - which is what you want in a web app -->
 	 
 	 
